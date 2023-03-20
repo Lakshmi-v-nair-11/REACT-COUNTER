@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [count, setcount] = useState(0)
+  function incr() {
+    setcount(count + 1)
+  }
+  function decr() {
+    setcount(count - 1)
+  }
+  function reset() {
+    setcount(0)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App' >
+      <button onClick={decr}>-</button>
+      <span>{count}</span>
+      <button onClick={incr}>+</button>
+      <button onClick={reset}>RESET</button>
     </div>
   );
 }
